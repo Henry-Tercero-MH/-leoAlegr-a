@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oleo de Alegría</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hero {
+      position: relative;
+      background: url('img/portada.jpg') center/cover no-repeat;
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.942);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.484);
+      z-index: 1;
+    }
+
+    .hero>div {
+      position: relative;
+      z-index: 2;
+      font-size: 30px;
+      margin-top: -310px;
+      /* Ajuste para mover el texto hacia arriba */
+    }
+
+    .gallery img {
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <header class="hero text-center">
+    <div>
+      <h1 class="display-1">Oleo de Alegría</h1>
+      <!-- <p class="lead">Donde la felicidad es nuestra esencia</p> -->
+      <a href="#about" class="btn btn-lg btn-light mt-4">Descubre Más</a>
+    </div>
+  </header>
+
+  <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Oleo de Alegría</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Sobre Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Galería</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sección: Sobre Nosotros -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Sobre Nosotros</h2>
+      <p class="text-center">Somos Jovenes Apasionados, que buscan adorar en Espíritu y en Verdad</p>
+    </div>
+  </section>
+
+  <!-- Sección: Galería -->
+  <section id="gallery" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center">Galería</h2>
+      <div class="row gallery mt-4">
+        <div class="col-md-4">
+          <img src="img/img1.jpg" class="img-fluid rounded mb-3 shadow" alt="Imagen 1">
+        </div>
+        <div class="col-md-4">
+          <img src="img/img3.jpg" class="img-fluid rounded mb-3 shadow" alt="Imagen 2">
+        </div>
+        <div class="col-md-4">
+          <img src="img/img5.jpg" class="img-fluid rounded mb-3 shadow" alt="Imagen 3" he>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Videos -->
+  <section id="videos" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Nuestros Videos</h2>
+      <p class="text-center">Explora nuestra colección nuestra música.</p>
+      <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+          <div class="ratio ratio-16x9 shadow rounded">
+            <iframe src="https://www.youtube.com/embed/OGSR1CGSikk" title="Video 1" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="ratio ratio-16x9 shadow rounded">
+            <iframe src="https://www.youtube.com/embed/OGSR1CGSikk" title="Video 2" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="ratio ratio-16x9 shadow rounded">
+          <iframe src="https://www.youtube.com/embed/SKK68xioAhA" title="YouTube Short" allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Sección: Contacto -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center">Contáctanos</h2>
+      <form class="mt-4" action="https://formspree.io/f/{tu-id}" method="POST">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico"
+              required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="message" name="message" rows="4" placeholder="Escribe tu mensaje"
+            required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w-100">Enviar</button>
+      </form>
+    </div>
+  </section>
+  <!-- Pie de página -->
+  <footer class="bg-dark text-white text-center py-4">
+    <p class="mb-0">&copy; 2025 Oleo de Alegría. Todos los derechos reservados. by hemisterhe</p>
+    <p>Síguenos en Facebook e Instagram:
+      <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+
+</html>
