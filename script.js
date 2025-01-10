@@ -1,62 +1,70 @@
-let score = 0;
-let correctAnswer = "";
+// Función para obtener el libro de la Biblia (por ejemplo, Proverbios)
+async function getBookInfo(bookName) {
+  try {
+    // Hacemos la solicitud a la API para obtener información sobre el libro
+    const response = await fetch(
+      `https://bible-api.deno.dev/api/book/${bookName}`
+    );
 
-// Función para obtener un versículo aleatorio
-function getVerse() {
-  fetch("https://bible-api.com/random")
-    .then((response) => response.json())
-    .then((data) => {
-      const verse = data.text;
-      correctAnswer = data.reference; // El versículo de referencia correcto
+    // Verificamos si la respuesta es exitosa
+    if (!response.ok) {
+      throw new Error("Error al obtener la información del libro");
+    }
 
-      // Mostrar el versículo en la página
+    // Convertimos la respuesta a JSON
+    const data = await response.json();
+
+    // Mostramos la información del libro
+    console.log(`Información del libro: ${data.name}`);
+    console.log(`Abreviatura: ${data.abrev}`);
+    console.log(`Capítulos: ${data.chapters}`);
+    console.log(`Testamento: ${data.testament}`);
+  } catch (error) {
+    console.error("Error al obtener el libro:", error);
+  }
+}
+
+// Función para obtener el versículo del día
+async function getDailyVerse() {
+  try {
+    // Hacemos la solicitud a la API para obtener Proverbios 1:1 en la versión NVI
+    const response = await fetch(
+      "https://bible-api.deno.dev/api/read/nvi/proverbios/1/1"
+    );
+
+    // Verificamos si la respuesta es exitosa
+    if (!response.ok) {
+      throw new Error("Error al obtener el versículo");
+    }
+
+    // Convertimos la respuesta a JSON
+    const data = await response.json();
+
+    // Verificamos si la respuesta contiene el versículo
+    if (data && data.length > 0) {
+      // Mostrar el versículo en el HTML
+      const verseText = data[0].verse;
+      const verseNumber = data[0].number;
+
+      // Actualizamos el contenido del versículo en la página
       document.getElementById(
         "question"
-      ).textContent = `¿De qué versículo es esta cita? "${verse}"`;
+      ).innerText = `Versículo del Día: Proverbios ${verseNumber}:1 - ${verseText}`;
 
-      // Crear opciones de respuesta
-      const options = ["Juan 3:16", "Salmo 23:1", correctAnswer];
-      shuffle(options); // Función para mezclar las opciones
-
-      // Asignar las opciones a los botones
-      document.getElementById("option1").textContent = options[0];
-      document.getElementById("option2").textContent = options[1];
-      document.getElementById("option3").textContent = options[2];
-
-      // Asignar las funciones de clic a los botones
-      document.getElementById("option1").onclick = () =>
-        checkAnswer(options[0]);
-      document.getElementById("option2").onclick = () =>
-        checkAnswer(options[1]);
-      document.getElementById("option3").onclick = () =>
-        checkAnswer(options[2]);
-    })
-    .catch((error) => console.error("Error al obtener el versículo:", error));
-}
-
-// Función para mezclar las opciones de respuesta
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // Intercambiar los elementos
+      // También obtenemos información sobre el libro Proverbios
+      getBookInfo("proverbios");
+    } else {
+      throw new Error("No se pudo obtener el versículo del día");
+    }
+  } catch (error) {
+    // Si hay un error, mostramos un mensaje en la consola
+    console.error("Error al obtener el versículo:", error);
+    document.getElementById("question").innerText =
+      "Error al obtener el versículo del día.";
   }
 }
 
-// Función para verificar la respuesta
-function checkAnswer(selectedAnswer) {
-  if (selectedAnswer === correctAnswer) {
-    score++;
-    alert("¡Correcto!");
-  } else {
-    alert("¡Incorrecto! Intenta de nuevo.");
-  }
-
-  // Mostrar el puntaje
-  document.getElementById("scoreValue").textContent = score;
-
-  // Cargar una nueva pregunta después de un breve retraso
-  setTimeout(getVerse, 1500);
-}
-
-// Iniciar el juego
-getVerse();
+// Llamamos a la función cuando la página carga
+window.onload = function () {
+  getDailyVerse();
+};
