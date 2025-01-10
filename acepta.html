@@ -111,11 +111,24 @@
         padding: 20px;
       }
     }
+
+    /* Botón Regresar con posición fija */
+    .back-button {
+      position: absolute;
+      top: 10px;
+      /* Espacio superior */
+      left: 10px;
+      /* Espacio izquierdo */
+      z-index: 999;
+      /* Para asegurarse de que esté sobre otros elementos */
+    }
   </style>
 </head>
 
 <body>
-  <button class="btn btn-primary mb-4" onclick="window.location.href='index.html'">Regresar</button>
+  <!-- Botón de regresar -->
+  <button class="btn btn-primary back-button" onclick="window.location.href='index.html'">Regresar</button>
+
   <h1>¿Aceptas a Cristo en tu corazón?</h1>
   <div class="button-container">
     <button id="accept">Sí, acepto</button>
