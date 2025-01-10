@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Cristiano - ¿De qué versículo es esta cita?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .option-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .option-button:hover {
+            background-color: #45a049;
+        }
+        #score {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Juego Cristiano!</h1>
+    <div id="question">Cargando pregunta...</div>
+    <div id="options">
+        <button id="option1" class="option-button">Opción 1</button>
+        <button id="option2" class="option-button">Opción 2</button>
+        <button id="option3" class="option-button">Opción 3</button>
+    </div>
+    <div id="score">Puntaje: <span id="scoreValue">0</span></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
