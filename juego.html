@@ -12,33 +12,64 @@
       background-image: url("https://images.unsplash.com/photo-1604882737206-8a000c03d8fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJpYmxpYXxlbnwwfHwwfHx8MA%3D%3D");
       background-position: center;
       background-repeat: no-repeat;
-      padding: 20px;
       background-size: cover;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: white;
+      font-size: 2.5rem;
     }
 
     #verse {
-      font-size: 24px;
+      font-size: 1.5rem;
       margin-bottom: 20px;
       color: white;
+      line-height: 1.6;
     }
 
     #verseSource {
-      font-size: 18px;
+      font-size: 1.2rem;
       color: white;
       margin-top: 10px;
     }
 
-    .container {
-      text-align: center;
+    button {
+      font-size: 1rem;
+    }
+
+    /* Responsividad para dispositivos móviles */
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      #verse {
+        font-size: 1.2rem;
+      }
+
+      button {
+        width: 100%;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <button class="btn btn-primary" onclick="window.location.href='index.html'">Regresar</button>
+  <button class="btn btn-primary mb-4" onclick="window.location.href='index.html'">Regresar</button>
   <div class="container">
-    <h1>Proximanente....</h1>
-    <h1 class="mb-4 text-white">Versículo del Día</h1>
+    <h1>Próximamente...</h1>
+    <h2 class="mb-4 text-white">Versículo del Día</h2>
     <div id="verse" class="mb-4">Cargando versículo...</div>
     <div id="verseSource" class="text-white"></div>
     <button class="btn btn-primary mt-4" onclick="window.location.reload()">Cargar otro versículo</button>
