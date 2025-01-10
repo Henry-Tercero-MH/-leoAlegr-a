@@ -151,6 +151,67 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+    /* Modal: Ocultar por defecto */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Estilo de la imagen dentro del modal */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    /* Estilo del texto del caption */
+    #caption {
+      text-align: center;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    /* Estilo de la cruz de cierre */
+    .close {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      cursor: pointer;
+    }
+
+    /* Cuando el modal es visible */
+    .modal:target {
+      display: block;
+    }
+
+    /* Asegurar que la imagen dentro de la tarjeta es responsiva */
+    .card-img-top {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Hacer que las imágenes en la galería sean responsivas */
+    .card {
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 
@@ -204,18 +265,49 @@
   <!-- Sección: Galería -->
   <section id="gallery" class="py-5 bg-light">
     <div class="container">
-      <h2 class="text-center">Galería</h2>
-      <div class="gallery-3d mt-4">
-        <div class="carousel">
-          <img src="img/img1.jpg" class="img-fluid rounded shadow" alt="Imagen 1" onclick="openModal(this)">
-          <img src="img/img3.jpg" class="img-fluid rounded shadow" alt="Imagen 2" onclick="openModal(this)">
-          <img src="img/img5.jpg" class="img-fluid rounded shadow" alt="Imagen 3" onclick="openModal(this)">
-          <img src="img/img1.jpg" class="img-fluid rounded shadow" alt="Imagen 1" onclick="openModal(this)">
-          <img src="img/img3.jpg" class="img-fluid rounded shadow" alt="Imagen 2" onclick="openModal(this)">
-          <img src="img/img5.jpg" class="img-fluid rounded shadow" alt="Imagen 3" onclick="openModal(this)">
-          <img src="img/img1.jpg" class="img-fluid rounded shadow" alt="Imagen 1" onclick="openModal(this)">
-          <img src="img/img3.jpg" class="img-fluid rounded shadow" alt="Imagen 2" onclick="openModal(this)">
-          <img src="img/img5.jpg" class="img-fluid rounded shadow" alt="Imagen 3" onclick="openModal(this)">
+      <h2 class="text-center mb-4">Galería</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <!-- Imagen 1 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/img1.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen 1"
+              onclick="openModal(this)">
+          </div>
+        </div>
+        <!-- Imagen 2 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/img3.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen 2"
+              onclick="openModal(this)">
+          </div>
+        </div>
+        <!-- Imagen 3 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/img5.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen 3"
+              onclick="openModal(this)">
+          </div>
+        </div>
+        <!-- Imagen 4 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/img1.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen 1"
+              onclick="openModal(this)">
+          </div>
+        </div>
+        <!-- Imagen 5 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/img3.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen 2"
+              onclick="openModal(this)">
+          </div>
+        </div>
+        <!-- Imagen 6 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/img5.jpg" class="card-img-top img-fluid rounded shadow" alt="Imagen 3"
+              onclick="openModal(this)">
+          </div>
         </div>
       </div>
     </div>
